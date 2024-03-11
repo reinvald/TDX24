@@ -1,0 +1,8 @@
+node_modules
+.sfdx
+.sf
+coverage
+**/.DS_Store
+config/project-scratch-def.json
+jestTestResults.json
+package-lock.json
