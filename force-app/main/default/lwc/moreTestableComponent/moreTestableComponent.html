@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Contact List">
+        <div class="slds-m-around_medium">
+            <lightning-input label="Search Contacts" onchange={handleSearchChange}></lightning-input>
+            <template if:true={error}>
+                <!-- graceful error handling allows for the user to be shown an error message -->
+                <div data-id="errorMessage" class="slds-text-color_error">{error}</div>
+            </template>
+            <template if:true={contacts}>
+                <lightning-layout>
+                    <template for:each={filteredContacts} for:item="contact">
+                        <lightning-layout-item key={contact.Id} size="6">
+                            <div class="slds-p-around_medium slds-box">
+                                <p>{contact.Name}</p>
+                                <p>{contact.Email}</p>
+                                <p>{contact.Phone}</p>
+                            </div>
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </template>
+            <template if:false={filteredContacts}>
+                <!-- using a data attribute on the div allows for it to be queried and tested -->
+                <div data-id="noContactsMessage">No contacts found.</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
