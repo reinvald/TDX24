@@ -6,7 +6,7 @@
                 <!-- graceful error handling allows for the user to be shown an error message -->
                 <div data-id="errorMessage" class="slds-text-color_error">{error}</div>
             </template>
-            <template if:true={contacts}>
+            <template if:true={filteredContacts}>
                 <lightning-layout>
                     <template for:each={filteredContacts} for:item="contact">
                         <lightning-layout-item key={contact.Id} size="6">
